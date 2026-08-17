@@ -1,8 +1,9 @@
 # macOS system files
 .DS_Store
 
-# JSON files
+# JSON files (except deployment configs)
 *.json
+!vercel.json
 
 # Hidden files and folders (except for .gitignore)
 .*
