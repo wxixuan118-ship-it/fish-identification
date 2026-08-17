@@ -4,6 +4,7 @@
 # JSON files (except deployment configs)
 *.json
 !vercel.json
+!package.json
 
 # Hidden files and folders (except for .gitignore)
 .*
