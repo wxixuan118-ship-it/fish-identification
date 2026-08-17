@@ -7,6 +7,25 @@
 <meta name="description" content="Identify saltwater fish using clear pictures and a handy chart. Find your species fast—start identifying now."/>
 <link rel="canonical" href="https://identify.fishcareai.com/saltwater-fish-identification"/>
 <style>
+/* ── FishCare AI Global Navigation ─────────────────────────────────────── */
+.nb{position:sticky;top:0;z-index:100;background:#0B3250;border-bottom:1px solid rgba(255,255,255,.08);padding:0 22px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.fishcare-logo-img{height:36px;width:auto;display:block}
+.nlinks{display:flex;align-items:center;gap:2px}
+.nl{display:flex;align-items:center;padding:7px 13px;border-radius:8px;font-weight:500;font-size:.86rem;line-height:1;color:rgba(255,255,255,.72);text-decoration:none;transition:all .15s;background:none;border:none;cursor:pointer;white-space:nowrap}
+.nl:hover,.nl.act{color:#fff;background:rgba(255,255,255,.1)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;border:none;background:none}
+.hbg span{display:block;width:21px;height:2px;background:#fff;border-radius:2px;transition:all .2s}
+.hbg-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbg-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  .nlinks{display:none;position:absolute;top:64px;left:0;right:0;background:#0F3D5E;flex-direction:column;padding:12px;border-bottom:1px solid rgba(255,255,255,.08);gap:3px;box-shadow:0 8px 24px rgba(0,0,0,.3);max-height:calc(100vh - 64px);overflow-y:auto}
+  .nlinks.open{display:flex}
+  .hbg{display:flex}
+  .nlinks .nl{color:rgba(255,255,255,.75)}
+  .nlinks .nl:hover,.nlinks .nl.act{color:#fff;background:rgba(255,255,255,.1)}
+}
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -16,18 +35,18 @@
 }
 body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
 a{color:var(--accent)}
-header{background:linear-gradient(135deg,#051530,#0a2040);padding:14px 24px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border);flex-wrap:wrap}
-.logo{font-size:1.4rem;flex-shrink:0}
-.brand-name{color:#fff;font-weight:800;font-size:1.1rem;text-decoration:none;white-space:nowrap}
-.site-nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap;margin-left:auto}
-.site-nav a{padding:6px 12px;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;color:var(--muted);white-space:nowrap;transition:color .15s,background .15s}
-.site-nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
-.site-nav a.active{color:var(--accent);background:rgba(30,154,255,.12)}
-.site-nav .nav-cta{background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff!important;border-radius:999px;padding:6px 16px;margin-left:6px}
-.site-nav .nav-cta:hover{opacity:.88;background:linear-gradient(135deg,var(--accent),#0070cc)}
+
+
+
+
+
+
+
+
+
 .btn-primary{background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff}
 .btn-outline{background:rgba(30,154,255,.12);border:1px solid rgba(30,154,255,.3);color:var(--accent)}
-@media(max-width:700px){.site-nav{width:100%;justify-content:flex-start;gap:0}.site-nav a{font-size:.75rem;padding:5px 8px}}
+@media(max-width:700px){}
 main{max-width:960px;margin:0 auto;padding:36px 20px}
 .hero{text-align:center;padding:52px 24px 44px;background:linear-gradient(180deg,rgba(30,154,255,.07),transparent);border-radius:var(--radius);margin-bottom:40px;border:1px solid var(--border)}
 .hero h2{font-size:2rem;font-weight:900;color:#fff;margin-bottom:14px;line-height:1.2}
@@ -68,18 +87,23 @@ footer{text-align:center;padding:26px;font-size:.78rem;color:var(--muted);border
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">🐟</div>
-  <a class="brand-name" href="https://www.fishcareai.com/">FishCare AI</a>
-  <nav class="site-nav">
-    <a href="https://www.fishcareai.com/">Home</a>
-    <a href="https://www.fishcareai.com/guides/">Guide</a>
-    <a href="https://www.fishcareai.com/species/">Encyclopedia</a>
-    <a href="https://www.fishcareai.com/fish-health/">Fish Health</a>
-    <a href="/" class="active">Fish Identify Tool</a>
-    <a href="https://www.fishcareai.com/about/">About Us</a>
-  </nav>
-</header>
+<nav class="nb" id="fishcare-nav">
+  <a class="brand" href="https://www.fishcareai.com/">
+    <img class="fishcare-logo-img" src="https://www.fishcareai.com/assets/fishcare-logo.svg" alt="FishCare AI" width="142" height="36">
+  </a>
+  <div class="nlinks" id="fc-nlinks">
+    <a class="nl" href="https://www.fishcareai.com/">Home</a>
+    <a class="nl" href="https://www.fishcareai.com/guides/">Guides</a>
+    <a class="nl" href="https://www.fishcareai.com/wiki/">Encyclopedia</a>
+    <a class="nl" href="https://www.fishcareai.com/fish-health/">Fish Health</a>
+    <a class="nl act" href="https://identify.fishcareai.com/">Fish Identify</a>
+    <a class="nl" href="https://www.fishcareai.com/tools/fish-compatibility-checker/">Tools</a>
+    <a class="nl" href="https://www.fishcareai.com/about/">About</a>
+  </div>
+  <button class="hbg hbg-btn" id="fc-hbg" aria-label="Toggle navigation" aria-expanded="false" type="button">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
 <main>
   <div class="hero">
@@ -137,5 +161,18 @@ footer{text-align:center;padding:26px;font-size:.78rem;color:var(--muted);border
   <a href="/">Try the fish ID tool</a>
 </footer>
 
+<script>
+(function(){
+  var btn=document.getElementById('fc-hbg');
+  var links=document.getElementById('fc-nlinks');
+  if(!btn||!links)return;
+  btn.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    btn.classList.toggle('hbg-open',open);
+    btn.setAttribute('aria-expanded',String(open));
+    btn.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');
+  });
+})();
+</script>
 </body>
 </html>
