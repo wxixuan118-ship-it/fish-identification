@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fish-identification-d558af.anysites.app/sitemap.xml

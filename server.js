@@ -216,6 +216,8 @@ const server = http.createServer(async (req, res) => {
         const ct = ext === '.html' ? 'text/html; charset=utf-8'
                  : ext === '.css'  ? 'text/css'
                  : ext === '.js'   ? 'application/javascript'
+                 : ext === '.xml'  ? 'application/xml; charset=utf-8'
+                 : ext === '.txt'  ? 'text/plain; charset=utf-8'
                  : ext === '.png'  ? 'image/png'
                  : ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg'
                  : 'application/octet-stream';
