@@ -9,8 +9,7 @@ const PORT = process.env.PORT || 3000;
 const FISHIAL_TOKEN = process.env.FISHIAL_API_KEY;
 
 if (!FISHIAL_TOKEN) {
-  console.error('FISHIAL_API_KEY environment variable is required');
-  process.exit(1);
+  console.warn('WARNING: FISHIAL_API_KEY is not set — /api/identify will return 503');
 }
 
 // ── Fishial API helpers ──────────────────────────────────────────────────────
@@ -155,6 +154,9 @@ const server = http.createServer(async (req, res) => {
 
   // POST /api/identify
   if (req.method === 'POST' && url.pathname === '/api/identify') {
+    if (!FISHIAL_TOKEN) {
+      return sendJSON(res, 503, { error: 'FISHIAL_API_KEY is not configured on the server' });
+    }
     try {
       const ct = req.headers['content-type'] || '';
       if (!ct.startsWith('multipart/form-data')) {
