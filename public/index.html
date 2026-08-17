@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fish Identification AI</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a1628;--card:#0f2040;--card2:#152a50;
+  --accent:#1e9aff;--accent2:#00c9a7;
+  --text:#e8f4ff;--muted:#7da8cc;--border:#1e3a60;
+  --ok:#27ae60;--warn:#f39c12;--radius:14px;
+}
+body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.5}
+a{color:var(--accent)}
+
+/* ── Header ── */
+header{background:linear-gradient(135deg,#051530,#0a2040);padding:20px 24px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border)}
+.logo{font-size:1.6rem}
+header h1{font-size:1.3rem;font-weight:800;color:#fff}
+header p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.viewer-link{margin-left:auto;padding:7px 16px;border-radius:999px;background:rgba(30,154,255,.15);border:1px solid rgba(30,154,255,.35);color:var(--accent);font-size:.8rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.viewer-link:hover{background:rgba(30,154,255,.28)}
+
+/* ── Main layout ── */
+main{max-width:900px;margin:0 auto;padding:32px 20px}
+
+/* ── Upload zone ── */
+.upload-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(30,154,255,.04)}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--accent);background:rgba(30,154,255,.1)}
+.upload-zone .icon{font-size:3rem;margin-bottom:14px}
+.upload-zone h2{font-size:1.1rem;color:#fff;margin-bottom:8px}
+.upload-zone p{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+.upload-btn{display:inline-block;padding:10px 28px;border-radius:999px;background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff;font-weight:700;font-size:.9rem;cursor:pointer;border:none;box-shadow:0 8px 24px rgba(30,154,255,.3)}
+.upload-btn:hover{opacity:.88}
+#file-input{display:none}
+
+/* ── Preview & loading ── */
+.preview-wrap{display:none;position:relative;border-radius:var(--radius);overflow:hidden;background:var(--card);margin-bottom:24px;border:1px solid var(--border)}
+.preview-wrap img{width:100%;max-height:420px;object-fit:contain;display:block}
+.preview-wrap .change-btn{position:absolute;top:12px;right:12px;padding:6px 14px;border-radius:999px;background:rgba(0,0,0,.6);color:#fff;font-size:.78rem;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.2)}
+
+.spinner{display:none;text-align:center;padding:40px;font-size:.9rem;color:var(--muted)}
+.spinner::before{content:'';display:block;width:42px;height:42px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;margin:0 auto 16px;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── Results ── */
+.results{display:none}
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.results-header h2{font-size:1.15rem;font-weight:700}
+.results-header small{color:var(--muted);font-size:.8rem}
+
+.fish-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+.fish-card-header{padding:14px 18px;background:var(--card2);display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted)}
+.fish-card-header strong{color:#fff;font-size:.95rem}
+.det-badge{background:rgba(30,154,255,.18);color:var(--accent);padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:700;margin-left:auto}
+
+.species-list{padding:16px}
+.species-item{display:grid;grid-template-columns:80px 1fr;gap:14px;padding:14px;border-radius:10px;margin-bottom:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);transition:border-color .2s}
+.species-item:hover{border-color:rgba(30,154,255,.4)}
+.species-item:last-child{margin-bottom:0}
+.species-photo{width:80px;height:60px;border-radius:8px;object-fit:cover;background:#0a1628;flex-shrink:0}
+.species-photo.placeholder{display:flex;align-items:center;justify-content:center;font-size:2rem;background:var(--card2)}
+.species-info{}
+.species-name{font-weight:700;color:#fff;font-size:.95rem;margin-bottom:2px}
+.species-sci{font-style:italic;color:var(--muted);font-size:.78rem;margin-bottom:6px}
+.species-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.badge{padding:2px 9px;border-radius:999px;font-size:.72rem;font-weight:600}
+.acc-badge{background:rgba(39,174,96,.18);color:#4cd08a}
+.acc-badge.mid{background:rgba(243,156,18,.18);color:#f0b940}
+.acc-badge.low{background:rgba(108,117,125,.18);color:var(--muted)}
+.tag-badge{background:rgba(30,154,255,.1);color:var(--muted);border:1px solid var(--border)}
+.species-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+
+.no-fish{padding:32px;text-align:center;color:var(--muted)}
+
+/* ── Error ── */
+.error-box{display:none;background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:var(--radius);padding:18px 20px;margin-top:20px;color:#ff6b6b;font-size:.9rem}
+
+/* ── Footer ── */
+footer{text-align:center;padding:28px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);margin-top:40px}
+
+@media(max-width:540px){
+  .species-item{grid-template-columns:64px 1fr;gap:10px}
+  .species-photo{width:64px;height:48px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🐟</div>
+  <div>
+    <h1>Fish Identification AI</h1>
+    <p>Upload a fish photo — AI identifies the species instantly</p>
+  </div>
+  <a class="viewer-link" href="/viewer" target="_blank">3D Species Viewer →</a>
+</header>
+
+<main>
+  <!-- Upload zone -->
+  <div class="upload-zone" id="drop-zone">
+    <div class="icon">📷</div>
+    <h2>Drop a fish photo here</h2>
+    <p>Supports JPEG, PNG, WebP · Max 10 MB</p>
+    <label for="file-input" class="upload-btn">Choose Photo</label>
+    <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/gif"/>
+  </div>
+
+  <!-- Image preview -->
+  <div class="preview-wrap" id="preview-wrap">
+    <img id="preview-img" alt="Your fish photo"/>
+    <button class="change-btn" onclick="reset()">✕ Change photo</button>
+  </div>
+
+  <!-- Spinner -->
+  <div class="spinner" id="spinner">Analyzing with Fishial AI model…</div>
+
+  <!-- Error -->
+  <div class="error-box" id="error-box"></div>
+
+  <!-- Results -->
+  <div class="results" id="results">
+    <div class="results-header">
+      <h2>Identification Results</h2>
+      <small id="model-info"></small>
+    </div>
+    <div id="results-body"></div>
+  </div>
+</main>
+
+<footer>
+  Powered by <a href="https://fishial.ai" target="_blank">Fishial.ai</a> AI · 866 species · DinoV2 + ViT model
+</footer>
+
+<script>
+const dropZone  = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const previewWrap = document.getElementById('preview-wrap');
+const previewImg  = document.getElementById('preview-img');
+const spinner     = document.getElementById('spinner');
+const errorBox    = document.getElementById('error-box');
+const resultsDiv  = document.getElementById('results');
+const resultsBody = document.getElementById('results-body');
+const modelInfo   = document.getElementById('model-info');
+
+// Drag & drop
+['dragenter','dragover'].forEach(e => dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.add('drag'); }));
+['dragleave','drop'].forEach(e => dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.remove('drag'); }));
+dropZone.addEventListener('drop', ev => { const f = ev.dataTransfer.files[0]; if (f) handleFile(f); });
+fileInput.addEventListener('change', () => { if (fileInput.files[0]) handleFile(fileInput.files[0]); });
+
+function reset() {
+  dropZone.style.display = '';
+  previewWrap.style.display = 'none';
+  spinner.style.display = 'none';
+  resultsDiv.style.display = 'none';
+  errorBox.style.display = 'none';
+  fileInput.value = '';
+}
+
+function handleFile(file) {
+  if (!file.type.startsWith('image/')) return showError('Please select an image file.');
+  if (file.size > 10 * 1024 * 1024) return showError('File is too large (max 10 MB).');
+
+  // Show preview
+  const reader = new FileReader();
+  reader.onload = e => { previewImg.src = e.target.result; };
+  reader.readAsDataURL(file);
+  dropZone.style.display = 'none';
+  previewWrap.style.display = 'block';
+  spinner.style.display = 'block';
+  resultsDiv.style.display = 'none';
+  errorBox.style.display = 'none';
+
+  // Upload & identify
+  const fd = new FormData();
+  fd.append('image', file);
+  fetch('/api/identify', { method: 'POST', body: fd })
+    .then(r => r.json())
+    .then(data => {
+      spinner.style.display = 'none';
+      if (data.error) return showError(data.error);
+      renderResults(data);
+    })
+    .catch(err => { spinner.style.display = 'none'; showError(err.message); });
+}
+
+function showError(msg) {
+  errorBox.textContent = '⚠️ ' + msg;
+  errorBox.style.display = 'block';
+}
+
+function accClass(pct) {
+  if (pct >= 70) return 'acc-badge';
+  if (pct >= 40) return 'acc-badge mid';
+  return 'acc-badge low';
+}
+
+function renderResults(data) {
+  if (data.modelVersion) modelInfo.textContent = `Model v${data.modelVersion} · ${data.fishes.length} fish detected`;
+
+  if (!data.fishes || data.fishes.length === 0) {
+    resultsBody.innerHTML = '<div class="no-fish">🔍 No fish detected in this image. Try a clearer photo with the fish more prominently in frame.</div>';
+    resultsDiv.style.display = 'block';
+    return;
+  }
+
+  resultsBody.innerHTML = data.fishes.map((fish, fi) => {
+    const topSpecies = fish.species && fish.species.length > 0 ? fish.species : null;
+    const detPct = fish.detectionScore ? Math.round(fish.detectionScore * 100) : null;
+
+    const speciesHtml = topSpecies ? topSpecies.map((s, si) => {
+      const photoHtml = s.photo
+        ? `<img class="species-photo" src="${escHtml(s.photo)}" alt="${escHtml(s.commonName)}" loading="lazy" onerror="this.outerHTML='<div class=\\'species-photo placeholder\\'>🐟</div>'">`
+        : `<div class="species-photo placeholder">🐟</div>`;
+
+      const commonNamesHtml = s.commonNames.slice(0,3).map(n => `<span class="badge tag-badge">${escHtml(n)}</span>`).join('');
+      const tagsHtml = [
+        s.family ? `<span class="badge tag-badge">${escHtml(s.family)}</span>` : '',
+        s.order  ? `<span class="badge tag-badge">${escHtml(s.order)}</span>`  : ''
+      ].join('');
+
+      return `
+        <div class="species-item">
+          ${photoHtml}
+          <div class="species-info">
+            <div class="species-name">${escHtml(s.commonName)}</div>
+            <div class="species-sci">${escHtml(s.scientificName)}</div>
+            <div class="species-meta">
+              <span class="${accClass(s.accuracy)}">${s.accuracy}% match</span>
+              ${commonNamesHtml}
+              ${tagsHtml}
+            </div>
+            ${s.description ? `<div class="species-desc">${escHtml(s.description)}</div>` : ''}
+          </div>
+        </div>`;
+    }).join('') : '<div style="padding:14px;color:var(--muted);font-size:.85rem">No species matched</div>';
+
+    return `
+      <div class="fish-card">
+        <div class="fish-card-header">
+          <strong>Fish ${fi + 1}</strong>
+          ${detPct ? `<span class="det-badge">Detection ${detPct}%</span>` : ''}
+        </div>
+        <div class="species-list">${speciesHtml}</div>
+      </div>`;
+  }).join('');
+
+  resultsDiv.style.display = 'block';
+}
+
+function escHtml(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
