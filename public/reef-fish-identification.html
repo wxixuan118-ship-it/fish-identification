@@ -16,14 +16,18 @@
 }
 body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
 a{color:var(--accent)}
-header{background:linear-gradient(135deg,#051530,#0a2040);padding:18px 24px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)}
-.logo{font-size:1.5rem}
-header h1{font-size:1.2rem;font-weight:800;color:#fff}
-header p{font-size:.78rem;color:var(--muted)}
-.header-links{margin-left:auto;display:flex;gap:8px}
-.header-links a{padding:6px 14px;border-radius:999px;font-size:.78rem;font-weight:600;text-decoration:none;white-space:nowrap}
+header{background:linear-gradient(135deg,#051530,#0a2040);padding:14px 24px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.logo{font-size:1.4rem;flex-shrink:0}
+.brand-name{color:#fff;font-weight:800;font-size:1.1rem;text-decoration:none;white-space:nowrap}
+.site-nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap;margin-left:auto}
+.site-nav a{padding:6px 12px;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;color:var(--muted);white-space:nowrap;transition:color .15s,background .15s}
+.site-nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.site-nav a.active{color:var(--accent);background:rgba(30,154,255,.12)}
+.site-nav .nav-cta{background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff!important;border-radius:999px;padding:6px 16px;margin-left:6px}
+.site-nav .nav-cta:hover{opacity:.88;background:linear-gradient(135deg,var(--accent),#0070cc)}
 .btn-primary{background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff}
 .btn-outline{background:rgba(30,154,255,.12);border:1px solid rgba(30,154,255,.3);color:var(--accent)}
+@media(max-width:700px){.site-nav{width:100%;justify-content:flex-start;gap:0}.site-nav a{font-size:.75rem;padding:5px 8px}}
 main{max-width:960px;margin:0 auto;padding:36px 20px}
 .hero{text-align:center;padding:52px 24px 44px;background:linear-gradient(180deg,rgba(30,154,255,.07),transparent);border-radius:var(--radius);margin-bottom:40px;border:1px solid var(--border)}
 .hero h2{font-size:2rem;font-weight:900;color:#fff;margin-bottom:14px;line-height:1.2}
@@ -66,14 +70,15 @@ footer{text-align:center;padding:26px;font-size:.78rem;color:var(--muted);border
 <body>
 <header>
   <div class="logo">🐟</div>
-  <div>
-    <div><a href="/" style="color:#fff;font-weight:800;font-size:1.15rem;text-decoration:none">Fish Identification AI</a></div>
-    <p>Upload a photo — AI identifies the species instantly</p>
-  </div>
-  <div class="header-links">
-    <a class="btn-primary" href="/">🔍 Identify a Fish</a>
-    <a class="btn-outline" href="/fish-identification-chart">Species Chart</a>
-  </div>
+  <a class="brand-name" href="https://www.fishcareai.com/">FishCare AI</a>
+  <nav class="site-nav">
+    <a href="https://www.fishcareai.com/">Home</a>
+    <a href="https://www.fishcareai.com/guides/">Guide</a>
+    <a href="https://www.fishcareai.com/species/">Encyclopedia</a>
+    <a href="https://www.fishcareai.com/fish-health/">Fish Health</a>
+    <a href="/" class="active">Fish Identify Tool</a>
+    <a href="https://www.fishcareai.com/about/">About Us</a>
+  </nav>
 </header>
 
 <main>
