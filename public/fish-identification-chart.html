@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fish Identification Chart: Match the Right Species</title>
+<meta name="description" content="Use our fish identification chart to match species by photos and key traits. Try it now and identify your catch with confidence."/>
+<link rel="canonical" href="https://fish-identification-d558af.anysites.app/fish-identification-chart"/>
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a1628;--card:#0f2040;--card2:#152a50;
+  --accent:#1e9aff;--accent2:#00c9a7;
+  --text:#e8f4ff;--muted:#7da8cc;--border:#1e3a60;--radius:14px;
+}
+body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+a{color:var(--accent)}
+header{background:linear-gradient(135deg,#051530,#0a2040);padding:18px 24px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)}
+.logo{font-size:1.5rem}
+header h1{font-size:1.2rem;font-weight:800;color:#fff}
+header p{font-size:.78rem;color:var(--muted)}
+.header-links{margin-left:auto;display:flex;gap:8px}
+.header-links a{padding:6px 14px;border-radius:999px;font-size:.78rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff}
+.btn-outline{background:rgba(30,154,255,.12);border:1px solid rgba(30,154,255,.3);color:var(--accent)}
+main{max-width:960px;margin:0 auto;padding:36px 20px}
+.hero{text-align:center;padding:52px 24px 44px;background:linear-gradient(180deg,rgba(30,154,255,.07),transparent);border-radius:var(--radius);margin-bottom:40px;border:1px solid var(--border)}
+.hero h2{font-size:2rem;font-weight:900;color:#fff;margin-bottom:14px;line-height:1.2}
+.hero p{font-size:1rem;color:var(--muted);max-width:640px;margin:0 auto 28px}
+.try-btn{display:inline-block;padding:13px 36px;border-radius:999px;background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 8px 28px rgba(30,154,255,.35)}
+.try-btn:hover{opacity:.88}
+section.content-section{margin-bottom:40px}
+section.content-section h3{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+section.content-section ul{padding-left:20px;color:var(--muted);margin-bottom:12px}
+section.content-section ul li{margin-bottom:7px}
+section.content-section p{color:var(--muted);margin-bottom:10px}
+section.content-section strong{color:var(--text)}
+section.content-section em{color:#a0c0e0}
+.species-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:8px}
+.sg-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+.sg-card strong{display:block;color:#fff;font-size:.95rem;margin-bottom:2px}
+.sg-card em{display:block;font-style:italic;color:var(--muted);font-size:.78rem;margin-bottom:7px}
+.sg-card p{color:var(--muted);font-size:.82rem;margin:0}
+.id-chart{width:100%;border-collapse:collapse;font-size:.83rem}
+.id-chart th{background:var(--card2);color:var(--text);padding:10px 12px;text-align:left;font-weight:700;border:1px solid var(--border)}
+.id-chart td{padding:9px 12px;border:1px solid var(--border);color:var(--muted);vertical-align:top}
+.id-chart tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.id-chart td strong{color:var(--text)}
+.id-chart td em{color:#8ab8d8;font-style:italic}
+.cta-banner{background:linear-gradient(135deg,rgba(30,154,255,.15),rgba(0,201,167,.1));border:1px solid rgba(30,154,255,.3);border-radius:var(--radius);padding:36px 28px;text-align:center;margin:48px 0}
+.cta-banner h3{font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-banner p{color:var(--muted);margin-bottom:22px;font-size:.95rem}
+.chart-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.filter-btn{padding:7px 18px;border-radius:999px;background:rgba(30,154,255,.1);border:1px solid var(--border);color:var(--muted);font-size:.82rem;font-weight:600;cursor:pointer}
+.filter-btn.active{background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff;border-color:transparent}
+.related-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.related-links span{color:var(--muted);font-size:.82rem;padding-top:6px}
+.related-links a{padding:5px 14px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:.8rem;text-decoration:none}
+.related-links a:hover{color:var(--accent);border-color:rgba(30,154,255,.4)}
+footer{text-align:center;padding:26px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:600px){.hero h2{font-size:1.5rem}.species-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🐟</div>
+  <div>
+    <div><a href="/" style="color:#fff;font-weight:800;font-size:1.15rem;text-decoration:none">Fish Identification AI</a></div>
+    <p>Upload a photo — AI identifies the species instantly</p>
+  </div>
+  <div class="header-links">
+    <a class="btn-primary" href="/">🔍 Identify a Fish</a>
+    <a class="btn-outline" href="/fish-identification-chart">Species Chart</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h2>Fish Identification Chart: Filter by Habitat & Traits</h2>
+    <p>This interactive fish identification chart covers 40 of the world's most commonly encountered fish species across saltwater, freshwater, and reef environments. Filter by habitat to narrow the field, then match key physical traits to confirm your identification. For photo-based AI identification, use the tool below.</p>
+    <a class="try-btn" href="/">📷 Upload Photo &amp; Identify Now</a>
+  </div>
+
+  <section class="content-section"><h3>How to Use This Chart</h3>
+<p>1. <strong>Select your habitat</strong> using the filter buttons above the chart (All / Saltwater / Freshwater / Reef).<br>
+2. <strong>Scan the key traits column</strong> to find features matching what you observed.<br>
+3. <strong>Still unsure?</strong> Upload a photo of your fish to the AI identification tool for an instant species match.</p>
+</section>
+<section class="content-section"><h3>Interactive Fish Chart</h3>
+<div class="chart-controls">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="saltwater">Saltwater</button>
+  <button class="filter-btn" data-filter="freshwater">Freshwater</button>
+  <button class="filter-btn" data-filter="reef">Reef</button>
+</div>
+<div style="overflow-x:auto">
+<table class="id-chart" id="fish-chart">
+<thead><tr><th>Species</th><th>Habitat</th><th>Size Range</th><th>Key ID Traits</th><th>Distribution</th></tr></thead>
+<tbody>
+<tr data-habitat="reef"><td><strong>Clownfish</strong><br><em>Amphiprioninae</em></td><td>🐠 Reef</td><td>7–15 cm</td><td>Orange with white bars edged in black; lives in anemones</td><td>Indo-Pacific</td></tr>
+<tr data-habitat="reef"><td><strong>Blue Tang</strong><br><em>Acanthurus coeruleus</em></td><td>🐠 Reef</td><td>20–30 cm</td><td>Bright blue; yellow spine at tail base; juveniles are yellow</td><td>Atlantic / Caribbean</td></tr>
+<tr data-habitat="reef"><td><strong>Moorish Idol</strong><br><em>Zanclus cornutus</em></td><td>🐠 Reef</td><td>15–20 cm</td><td>Black, white & yellow bands; extremely long dorsal filament</td><td>Indo-Pacific, Hawaii</td></tr>
+<tr data-habitat="reef"><td><strong>Lionfish</strong><br><em>Pterois volitans</em></td><td>🐠 Reef</td><td>25–38 cm</td><td>Red-white stripes; feathery pectoral fins; venomous spines</td><td>Indo-Pacific (invasive Atlantic)</td></tr>
+<tr data-habitat="reef"><td><strong>Parrotfish</strong><br><em>Scarus spp.</em></td><td>🐠 Reef</td><td>30–120 cm</td><td>Beak-like fused teeth; vivid blues, greens, pinks</td><td>Tropical worldwide</td></tr>
+<tr data-habitat="reef"><td><strong>Queen Angelfish</strong><br><em>Holacanthus ciliaris</em></td><td>🐠 Reef</td><td>30–45 cm</td><td>Electric blue-yellow; blue crown spot on forehead</td><td>Caribbean</td></tr>
+<tr data-habitat="reef"><td><strong>Titan Triggerfish</strong><br><em>Balistoides viridescens</em></td><td>🐠 Reef</td><td>50–75 cm</td><td>Mottled brown-green; large; will defend nest aggressively</td><td>Indo-Pacific</td></tr>
+<tr data-habitat="reef"><td><strong>Napoleon Wrasse</strong><br><em>Cheilinus undulatus</em></td><td>🐠 Reef</td><td>60–230 cm</td><td>Distinctive forehead hump in adults; blue-green; endangered</td><td>Indo-Pacific</td></tr>
+<tr data-habitat="reef"><td><strong>Spotted Pufferfish</strong><br><em>Arothron meleagris</em></td><td>🐠 Reef</td><td>30–50 cm</td><td>Dark brown covered in white spots; inflates when threatened</td><td>Indo-Pacific</td></tr>
+<tr data-habitat="reef"><td><strong>Copperband Butterflyfish</strong><br><em>Chelmon rostratus</em></td><td>🐠 Reef</td><td>15–20 cm</td><td>White with copper vertical bands; long pointed snout</td><td>Indo-Pacific</td></tr>
+<tr data-habitat="saltwater"><td><strong>Atlantic Bluefin Tuna</strong><br><em>Thunnus thynnus</em></td><td>🌊 Saltwater</td><td>100–300 cm</td><td>Steel-blue back; silver belly; short pectoral fins; crescent tail</td><td>N. Atlantic, Mediterranean</td></tr>
+<tr data-habitat="saltwater"><td><strong>Mahi-Mahi</strong><br><em>Coryphaena hippurus</em></td><td>🌊 Saltwater</td><td>60–150 cm</td><td>Vivid blue-green-gold; blunt forehead in males; rapidly fades after death</td><td>Tropical worldwide</td></tr>
+<tr data-habitat="saltwater"><td><strong>Wahoo</strong><br><em>Acanthocybium solandri</em></td><td>🌊 Saltwater</td><td>100–210 cm</td><td>Elongated; blue-grey with faint vertical bars; knife-like teeth</td><td>Tropical worldwide</td></tr>
+<tr data-habitat="saltwater"><td><strong>Red Snapper</strong><br><em>Lutjanus campechanus</em></td><td>🌊 Saltwater</td><td>40–100 cm</td><td>Rose-red; pointed anal fin; large eye with red iris</td><td>W. Atlantic, Gulf of Mexico</td></tr>
+<tr data-habitat="saltwater"><td><strong>Barracuda</strong><br><em>Sphyraena barracuda</em></td><td>🌊 Saltwater</td><td>60–200 cm</td><td>Long cylindrical; silver with dark blotches; fang-like teeth</td><td>Tropical worldwide</td></tr>
+<tr data-habitat="saltwater"><td><strong>Tarpon</strong><br><em>Megalops atlanticus</em></td><td>🌊 Saltwater</td><td>100–250 cm</td><td>Very large silver scales; upturned mouth; bony gular plate</td><td>Atlantic, Caribbean</td></tr>
+<tr data-habitat="saltwater"><td><strong>Cobia</strong><br><em>Rachycentron canadum</em></td><td>🌊 Saltwater</td><td>60–200 cm</td><td>Dark brown; white belly; distinct lateral stripe; flat head</td><td>Atlantic, Indo-Pacific</td></tr>
+<tr data-habitat="saltwater"><td><strong>Snook</strong><br><em>Centropomus undecimalis</em></td><td>🌊 Saltwater</td><td>40–140 cm</td><td>Prominent black lateral line; protruding lower jaw; silver</td><td>Tropical Atlantic</td></tr>
+<tr data-habitat="saltwater"><td><strong>Redfish (Red Drum)</strong><br><em>Sciaenops ocellatus</em></td><td>🌊 Saltwater</td><td>40–160 cm</td><td>Copper-bronze; one or more black spots at tail base</td><td>W. Atlantic, Gulf of Mexico</td></tr>
+<tr data-habitat="saltwater"><td><strong>Grouper (Goliath)</strong><br><em>Epinephelus itajara</em></td><td>🌊 Saltwater</td><td>100–250 cm</td><td>Brownish with dark spots; massive; can exceed 400 kg</td><td>Atlantic, E. Pacific</td></tr>
+<tr data-habitat="freshwater"><td><strong>Largemouth Bass</strong><br><em>Micropterus salmoides</em></td><td>🏞 Freshwater</td><td>25–75 cm</td><td>Dark lateral stripe; jaw extends past rear of eye</td><td>N. America (introduced worldwide)</td></tr>
+<tr data-habitat="freshwater"><td><strong>Chinook Salmon</strong><br><em>Oncorhynchus tshawytscha</em></td><td>🏞 Freshwater</td><td>60–150 cm</td><td>Black spots on back and both tail lobes; black gum line</td><td>N. Pacific, introduced elsewhere</td></tr>
+<tr data-habitat="freshwater"><td><strong>Rainbow Trout</strong><br><em>Oncorhynchus mykiss</em></td><td>🏞 Freshwater</td><td>20–120 cm</td><td>Pink lateral stripe; black spots on body and fins</td><td>N. America, introduced worldwide</td></tr>
+<tr data-habitat="freshwater"><td><strong>Northern Pike</strong><br><em>Esox lucius</em></td><td>🏞 Freshwater</td><td>40–150 cm</td><td>Long body; duck-like snout; light bean-shaped spots on dark green</td><td>N. America, Europe, Asia</td></tr>
+<tr data-habitat="freshwater"><td><strong>Common Carp</strong><br><em>Cyprinus carpio</em></td><td>🏞 Freshwater</td><td>30–120 cm</td><td>Bronzy-gold; two pairs of barbels; large scales; dorsal spine</td><td>Worldwide (introduced)</td></tr>
+<tr data-habitat="freshwater"><td><strong>Walleye</strong><br><em>Sander vitreus</em></td><td>🏞 Freshwater</td><td>35–90 cm</td><td>Glassy opaque eyes (tapetum lucidum); olive-gold; white tail tip</td><td>N. America</td></tr>
+<tr data-habitat="freshwater"><td><strong>Bluegill</strong><br><em>Lepomis macrochirus</em></td><td>🏞 Freshwater</td><td>10–30 cm</td><td>Deep blue-black ear flap; vertical bars; orange breast in males</td><td>N. America (introduced elsewhere)</td></tr>
+<tr data-habitat="freshwater"><td><strong>Channel Catfish</strong><br><em>Ictalurus punctatus</em></td><td>🏞 Freshwater</td><td>30–100 cm</td><td>Deeply forked tail; scattered dark spots; long barbels</td><td>N. America</td></tr>
+<tr data-habitat="freshwater"><td><strong>Murray Cod</strong><br><em>Maccullochella peelii</em></td><td>🏞 Freshwater</td><td>50–180 cm</td><td>Green with dark blotches; large mouth; Australia's largest freshwater fish</td><td>SE Australia</td></tr>
+<tr data-habitat="freshwater"><td><strong>Peacock Bass</strong><br><em>Cichla ocellaris</em></td><td>🏞 Freshwater</td><td>30–75 cm</td><td>Gold-green with three dark vertical bars; distinctive ocellus (eye-spot) at tail</td><td>S. America (introduced Florida)</td></tr>
+<tr data-habitat="freshwater"><td><strong>Brown Trout</strong><br><em>Salmo trutta</em></td><td>🏞 Freshwater</td><td>25–100 cm</td><td>Brown with black and red spots; red spots often with pale halos</td><td>Europe (introduced worldwide)</td></tr>
+<tr data-habitat="freshwater"><td><strong>Bream (Abramis)</strong><br><em>Abramis brama</em></td><td>🏞 Freshwater</td><td>20–60 cm</td><td>Deep, laterally compressed; bronze-silver; long anal fin</td><td>Europe</td></tr>
+<tr data-habitat="freshwater"><td><strong>Tigerfish</strong><br><em>Hydrocynus vittatus</em></td><td>🏞 Freshwater</td><td>40–100 cm</td><td>Silver with dark horizontal stripes; large, interlocking fang-like teeth</td><td>Sub-Saharan Africa</td></tr>
+<tr data-habitat="freshwater"><td><strong>Arapaima</strong><br><em>Arapaima gigas</em></td><td>🏞 Freshwater</td><td>100–300 cm</td><td>Massive; dark grey-green with red-orange accents near tail; must breathe air</td><td>Amazon basin</td></tr>
+<tr data-habitat="freshwater"><td><strong>Barramundi</strong><br><em>Lates calcarifer</em></td><td>🏞 Freshwater</td><td>40–180 cm</td><td>Silver-white; large concave tail; steep head profile; red eye</td><td>Australia, SE Asia</td></tr>
+<tr data-habitat="saltwater"><td><strong>Amberjack</strong><br><em>Seriola dumerili</em></td><td>🌊 Saltwater</td><td>60–200 cm</td><td>Amber lateral stripe from eye to tail; dark dorsal, silver sides</td><td>Tropical/subtropical worldwide</td></tr>
+<tr data-habitat="saltwater"><td><strong>King Mackerel</strong><br><em>Scomberomorus cavalla</em></td><td>🌊 Saltwater</td><td>50–185 cm</td><td>Silver; lateral line dips sharply at mid-body; iridescent green back</td><td>W. Atlantic, Gulf of Mexico</td></tr>
+<tr data-habitat="saltwater"><td><strong>Bonefish</strong><br><em>Albula vulpes</em></td><td>🌊 Saltwater</td><td>40–90 cm</td><td>Extremely silvery; almost transparent; pointed snout; tails in shallow flats</td><td>Tropical worldwide</td></tr>
+<tr data-habitat="saltwater"><td><strong>Yellowfin Tuna</strong><br><em>Thunnus albacares</em></td><td>🌊 Saltwater</td><td>80–200 cm</td><td>Bright yellow fins and finlets; streamlined; deeply forked tail</td><td>Tropical worldwide</td></tr>
+<tr data-habitat="reef"><td><strong>Harlequin Tuskfish</strong><br><em>Choerodon fasciatus</em></td><td>🐠 Reef</td><td>20–30 cm</td><td>Vivid blue, orange, and black banding; protruding blue tusk-like canines</td><td>W. Pacific, GBR</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
+  <div class="cta-banner">
+    <h3>Not sure what species you're looking at?</h3>
+    <p>Upload any fish photo and our AI — trained on 866 species — gives you an instant identification with confidence score, common names, and species details.</p>
+    <a class="try-btn" href="/">Upload a Fish Photo</a>
+  </div>
+
+  <div class="related-links">
+    <span>Explore:</span>
+    <a href="/parrot-fish">Parrot Fish</a><a href="/butterfly-fish">Butterfly Fish</a><a href="/salmon-identification">Salmon Identification</a><a href="/saltwater-fish-identification">Saltwater Fish Identification</a><a href="/freshwater-fish-identification">Freshwater Fish Identification</a><a href="/reef-fish-identification">Reef Fish Identification</a>
+  </div>
+</main>
+
+<footer>
+  Powered by <a href="https://fishial.ai" target="_blank" rel="noopener">Fishial.ai</a> AI · 866 species · DinoV2 + ViT model ·
+  <a href="/">Try the fish ID tool</a>
+</footer>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('#fish-chart tbody tr').forEach(row => {
+      row.style.display = (f === 'all' || row.dataset.habitat === f) ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>

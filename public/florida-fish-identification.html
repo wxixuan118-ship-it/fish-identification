@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Florida Fish Identification: Saltwater & Keys</title>
+<meta name="description" content="Identify Florida fish with region-based guides and photos. Use the Florida Keys and saltwater sections to find your match."/>
+<link rel="canonical" href="https://fish-identification-d558af.anysites.app/florida-fish-identification"/>
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a1628;--card:#0f2040;--card2:#152a50;
+  --accent:#1e9aff;--accent2:#00c9a7;
+  --text:#e8f4ff;--muted:#7da8cc;--border:#1e3a60;--radius:14px;
+}
+body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+a{color:var(--accent)}
+header{background:linear-gradient(135deg,#051530,#0a2040);padding:18px 24px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)}
+.logo{font-size:1.5rem}
+header h1{font-size:1.2rem;font-weight:800;color:#fff}
+header p{font-size:.78rem;color:var(--muted)}
+.header-links{margin-left:auto;display:flex;gap:8px}
+.header-links a{padding:6px 14px;border-radius:999px;font-size:.78rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff}
+.btn-outline{background:rgba(30,154,255,.12);border:1px solid rgba(30,154,255,.3);color:var(--accent)}
+main{max-width:960px;margin:0 auto;padding:36px 20px}
+.hero{text-align:center;padding:52px 24px 44px;background:linear-gradient(180deg,rgba(30,154,255,.07),transparent);border-radius:var(--radius);margin-bottom:40px;border:1px solid var(--border)}
+.hero h2{font-size:2rem;font-weight:900;color:#fff;margin-bottom:14px;line-height:1.2}
+.hero p{font-size:1rem;color:var(--muted);max-width:640px;margin:0 auto 28px}
+.try-btn{display:inline-block;padding:13px 36px;border-radius:999px;background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 8px 28px rgba(30,154,255,.35)}
+.try-btn:hover{opacity:.88}
+section.content-section{margin-bottom:40px}
+section.content-section h3{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+section.content-section ul{padding-left:20px;color:var(--muted);margin-bottom:12px}
+section.content-section ul li{margin-bottom:7px}
+section.content-section p{color:var(--muted);margin-bottom:10px}
+section.content-section strong{color:var(--text)}
+section.content-section em{color:#a0c0e0}
+.species-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:8px}
+.sg-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+.sg-card strong{display:block;color:#fff;font-size:.95rem;margin-bottom:2px}
+.sg-card em{display:block;font-style:italic;color:var(--muted);font-size:.78rem;margin-bottom:7px}
+.sg-card p{color:var(--muted);font-size:.82rem;margin:0}
+.id-chart{width:100%;border-collapse:collapse;font-size:.83rem}
+.id-chart th{background:var(--card2);color:var(--text);padding:10px 12px;text-align:left;font-weight:700;border:1px solid var(--border)}
+.id-chart td{padding:9px 12px;border:1px solid var(--border);color:var(--muted);vertical-align:top}
+.id-chart tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.id-chart td strong{color:var(--text)}
+.id-chart td em{color:#8ab8d8;font-style:italic}
+.cta-banner{background:linear-gradient(135deg,rgba(30,154,255,.15),rgba(0,201,167,.1));border:1px solid rgba(30,154,255,.3);border-radius:var(--radius);padding:36px 28px;text-align:center;margin:48px 0}
+.cta-banner h3{font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-banner p{color:var(--muted);margin-bottom:22px;font-size:.95rem}
+.chart-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.filter-btn{padding:7px 18px;border-radius:999px;background:rgba(30,154,255,.1);border:1px solid var(--border);color:var(--muted);font-size:.82rem;font-weight:600;cursor:pointer}
+.filter-btn.active{background:linear-gradient(135deg,var(--accent),#0070cc);color:#fff;border-color:transparent}
+.related-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.related-links span{color:var(--muted);font-size:.82rem;padding-top:6px}
+.related-links a{padding:5px 14px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:.8rem;text-decoration:none}
+.related-links a:hover{color:var(--accent);border-color:rgba(30,154,255,.4)}
+footer{text-align:center;padding:26px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:600px){.hero h2{font-size:1.5rem}.species-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🐟</div>
+  <div>
+    <div><a href="/" style="color:#fff;font-weight:800;font-size:1.15rem;text-decoration:none">Fish Identification AI</a></div>
+    <p>Upload a photo — AI identifies the species instantly</p>
+  </div>
+  <div class="header-links">
+    <a class="btn-primary" href="/">🔍 Identify a Fish</a>
+    <a class="btn-outline" href="/fish-identification-chart">Species Chart</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h2>Florida Fish Identification: From the Panhandle to the Keys</h2>
+    <p>Florida's waters span the Gulf of Mexico, the Atlantic coast, and the unique subtropical ecosystem of the Florida Keys — making it one of North America's most species-rich fishing destinations. From inshore flats to offshore wrecks, this guide covers the fish you're most likely to encounter. Snap a photo and let the AI identify your catch instantly.</p>
+    <a class="try-btn" href="/">📷 Upload Photo &amp; Identify Now</a>
+  </div>
+
+  <section class="content-section"><h3>Florida Saltwater Species Overview</h3>
+<div class="species-grid">
+  <div class="sg-card"><strong>Red Snapper</strong><em>Lutjanus campechanus</em><p>Pink-red body; distinctive pointed anal fin; large eye. Prime offshore target; found on hard bottom structures 20–100 m.</p></div>
+  <div class="sg-card"><strong>Spotted Seatrout</strong><em>Cynoscion nebulosus</em><p>Silver with black spots; two prominent canine teeth. The most popular inshore game fish on both coasts.</p></div>
+  <div class="sg-card"><strong>Redfish (Red Drum)</strong><em>Sciaenops ocellatus</em><p>Copper-bronze; one or more black spots at tail base. Inshore flats stalwart; bull reds school nearshore in fall.</p></div>
+  <div class="sg-card"><strong>Snook</strong><em>Centropomus undecimalis</em><p>Distinctive black lateral line on silver body; protruding lower jaw. Warm-water species concentrated in south Florida year-round.</p></div>
+  <div class="sg-card"><strong>Tarpon</strong><em>Megalops atlanticus</em><p>Large silver scales; upturned mouth; up to 2.5 m long. The "Silver King" — legendary for acrobatic jumps when hooked.</p></div>
+  <div class="sg-card"><strong>Mahi-Mahi</strong><em>Coryphaena hippurus</em><p>Vivid green-and-gold with blue spots offshore; males have blunt foreheads. Rapid colour change at boatside is unmistakeable.</p></div>
+</div>
+</section>
+<section class="content-section"><h3>Florida Keys Specialties</h3>
+<p>The Florida Keys extend 200 km from Miami to Key West, with the only living coral barrier reef in the continental United States running along their Atlantic side. Unique species and sightings:</p>
+<ul>
+  <li><strong>Permit (<em>Trachinotus falcatus</em>):</strong> Deep-bodied silver fish with a black-edged tail; feeds on crabs on the flats — the holy grail for Keys fly fishing.</li>
+  <li><strong>Bonefish (<em>Albula vulpes</em>):</strong> Extremely fast; silver and almost transparent. Tails on shallow flats make for legendary sight-fishing.</li>
+  <li><strong>Goliath Grouper (<em>Epinephelus itajara</em>):</strong> Can exceed 400 kg; brownish with dark spots. Frequently seen by divers around nearshore wrecks and ledges.</li>
+  <li><strong>Cubera Snapper (<em>Lutjanus cyanopterus</em>):</strong> Largest Atlantic snapper; deep red-brown; found around reef ledges and wrecks.</li>
+  <li><strong>Hogfish (<em>Lachnolaimus maximus</em>):</strong> Long pig-like snout; pink and white; common on reef structures — a prized eating fish.</li>
+</ul>
+</section>
+<section class="content-section"><h3>Panhandle & Gulf Coast ID Notes</h3>
+<p>The northwestern Florida Gulf Coast (Pensacola, Destin, Tampa Bay) has cooler, less tropical water and a slightly different species mix:</p>
+<ul>
+  <li>King and Spanish mackerel are common nearshore in warmer months.</li>
+  <li>Cobia (<em>Rachycentron canadum</em>): Dark brown with a white belly stripe; often seen following rays on the surface — one of the most distinctive inshore pelagics.</li>
+  <li>Flounder (Gulf Flounder, Southern Flounder): Flat, camouflaged bottom fish; the eyes are on the left side of the body in Gulf flounder.</li>
+  <li>Sheepshead (<em>Archosargus probatocephalus</em>): Black and white vertical stripes; human-like teeth; found around pilings and structure — one of the trickiest fish to identify by name alone.</li>
+</ul>
+</section>
+
+
+  <div class="cta-banner">
+    <h3>Not sure what species you're looking at?</h3>
+    <p>Upload any fish photo and our AI — trained on 866 species — gives you an instant identification with confidence score, common names, and species details.</p>
+    <a class="try-btn" href="/">Upload a Fish Photo</a>
+  </div>
+
+  <div class="related-links">
+    <span>Explore:</span>
+    <a href="/parrot-fish">Parrot Fish</a><a href="/butterfly-fish">Butterfly Fish</a><a href="/salmon-identification">Salmon Identification</a><a href="/saltwater-fish-identification">Saltwater Fish Identification</a><a href="/freshwater-fish-identification">Freshwater Fish Identification</a><a href="/reef-fish-identification">Reef Fish Identification</a>
+  </div>
+</main>
+
+<footer>
+  Powered by <a href="https://fishial.ai" target="_blank" rel="noopener">Fishial.ai</a> AI · 866 species · DinoV2 + ViT model ·
+  <a href="/">Try the fish ID tool</a>
+</footer>
+
+</body>
+</html>

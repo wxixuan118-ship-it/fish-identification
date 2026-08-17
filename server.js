@@ -193,16 +193,36 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // GET /  – main UI
-  if (req.method === 'GET' && (url.pathname === '/' || url.pathname === '/index.html')) {
-    sendFile(res, path.join(__dirname, 'public', 'index.html'), 'text/html; charset=utf-8');
-    return;
-  }
-
   // GET /viewer  – original 3D embedding viewer
   if (req.method === 'GET' && url.pathname === '/viewer') {
     sendFile(res, path.join(__dirname, 'static', 'index.html'), 'text/html; charset=utf-8');
     return;
+  }
+
+  // GET /* – serve static files from public/ (with path-traversal guard)
+  if (req.method === 'GET') {
+    const publicDir = path.join(__dirname, 'public');
+    const raw = decodeURIComponent(url.pathname);
+    const slug = path.normalize(raw).replace(/^[/\\]+/, '') || 'index.html';
+    const candidates = [
+      path.join(publicDir, slug),
+      path.join(publicDir, slug + '.html'),
+      path.join(publicDir, slug, 'index.html'),
+    ];
+    for (const fp of candidates) {
+      if (!fp.startsWith(publicDir + path.sep) && fp !== publicDir) continue; // traversal guard
+      if (fs.existsSync(fp) && fs.statSync(fp).isFile()) {
+        const ext = path.extname(fp).toLowerCase();
+        const ct = ext === '.html' ? 'text/html; charset=utf-8'
+                 : ext === '.css'  ? 'text/css'
+                 : ext === '.js'   ? 'application/javascript'
+                 : ext === '.png'  ? 'image/png'
+                 : ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg'
+                 : 'application/octet-stream';
+        sendFile(res, fp, ct);
+        return;
+      }
+    }
   }
 
   res.writeHead(404); res.end('Not found');
