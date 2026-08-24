@@ -85,6 +85,19 @@ section.content-section em{color:#a0c0e0}
 footer{text-align:center;padding:26px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border)}
 @media(max-width:600px){.hero h2{font-size:1.5rem}.species-grid{grid-template-columns:1fr}}
 
+footer.ft{background:rgba(4,16,30,.95);border-top:1px solid rgba(125,235,255,.14);padding:48px 22px 28px;margin-top:40px}
+.ftg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px;max-width:1040px;margin:0 auto 28px}
+.ftbr .logo{font-size:1.3rem;font-weight:900;color:#fff;margin-bottom:10px}
+.ftbr p{font-size:.82rem;color:rgba(125,185,220,.7);line-height:1.6}
+.ftcol h5{font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(125,185,220,.5);margin-bottom:12px}
+.ftcol a{display:block;font-size:.84rem;color:rgba(125,185,220,.75);text-decoration:none;margin-bottom:8px;transition:color .15s}
+.ftcol a:hover{color:#fff}
+.ftb{max-width:1040px;margin:0 auto 12px;font-size:.78rem;color:rgba(125,185,220,.45);border-top:1px solid rgba(125,235,255,.1);padding-top:20px}
+.ft-legal{max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px 18px}
+.ft-legal a{font-size:.76rem;color:rgba(125,185,220,.55);text-decoration:none}
+.ft-legal a:hover{color:rgba(125,185,220,.9)}
+@media(max-width:700px){.ftg{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.ftg{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -92,13 +105,13 @@ footer{text-align:center;padding:26px;font-size:.78rem;color:var(--muted);border
   <a class="brand" href="https://www.fishcareai.com/">
     <img class="fishcare-logo-img" src="https://www.fishcareai.com/assets/fishcare-logo.svg" alt="FishCare AI" width="142" height="36">
   </a>
-  <div class="nlinks" id="fc-nlinks">
+    <div class="nlinks" id="fc-nlinks">
     <a class="nl" href="https://www.fishcareai.com/">Home</a>
     <a class="nl" href="https://www.fishcareai.com/guides/">Guides</a>
-    <a class="nl" href="https://www.fishcareai.com/wiki/">Encyclopedia</a>
-    <a class="nl" href="https://www.fishcareai.com/fish-health/">Fish Health</a>
-    <a class="nl act" href="https://identify.fishcareai.com/">Fish Identify</a>
-    <a class="nl" href="https://www.fishcareai.com/tools/fish-compatibility-checker/">Tools</a>
+    <a class="nl" href="https://www.fishcareai.com/tools/">Tools</a>
+    <a class="nl" href="https://www.fishcareai.com/species/">Encyclopedia</a>
+    <a class="nl" href="https://www.fishcareai.com/aquarium-fish-diseases/">Fish Diseases</a>
+    <a class="nl" href="https://identify.fishcareai.com/">Fish Identify</a>
     <a class="nl" href="https://www.fishcareai.com/about/">About</a>
   </div>
   <button class="hbg hbg-btn" id="fc-hbg" aria-label="Toggle navigation" aria-expanded="false" type="button">
@@ -156,22 +169,58 @@ footer{text-align:center;padding:26px;font-size:.78rem;color:var(--muted);border
   </div>
 </main>
 
-<footer>
-  Powered by <a href="https://fishial.ai" target="_blank" rel="noopener">Fishial.ai</a> AI · 866 species · DinoV2 + ViT model ·
-  <a href="/">Try the fish ID tool</a>
+<footer class="ft">
+  <div class="ftg">
+    <div class="ftbr">
+      <div class="logo">FishCare AI</div>
+      <p>AI fish identification and aquarium care guides for freshwater and saltwater fishkeepers.</p>
+    </div>
+    <div class="ftcol">
+      <h5>Explore</h5>
+      <a href="https://www.fishcareai.com/species/">Fish Species</a>
+      <a href="https://www.fishcareai.com/aquarium-fish-diseases/">Fish Diseases</a>
+      <a href="https://www.fishcareai.com/guides/">Guides</a>
+      <a href="https://www.fishcareai.com/tools/">Aquarium Tools</a>
+      <a href="https://identify.fishcareai.com/">Fish Identify</a>
+    </div>
+    <div class="ftcol">
+      <h5>Popular Tools</h5>
+      <a href="https://www.fishcareai.com/tools/fish-compatibility-checker/">Compatibility Checker</a>
+      <a href="https://www.fishcareai.com/tools/tank-size-calculator/">Tank Size Calculator</a>
+      <a href="https://www.fishcareai.com/tools/water-parameter-checker/">Water Parameters</a>
+      <a href="https://www.fishcareai.com/tools/fish-feeding-calculator/">Feeding Calculator</a>
+      <a href="https://www.fishcareai.com/tools/aquarium-planner/">Aquarium Planner</a>
+    </div>
+    <div class="ftcol">
+      <h5>Company</h5>
+      <a href="https://www.fishcareai.com/about/">About</a>
+      <a href="https://www.fishcareai.com/contact/">Contact</a>
+      <a href="https://www.fishcareai.com/privacy/">Privacy Policy</a>
+      <a href="https://www.fishcareai.com/terms/">Terms</a>
+      <a href="https://www.fishcareai.com/editorial-policy/">Editorial Policy</a>
+    </div>
+  </div>
+  <div class="ftb">© 2026 EverTrend LLC. FishCare AI is a product of EverTrend LLC. All rights reserved.</div>
+  <nav class="ft-legal" aria-label="Legal and company information">
+    <a href="https://www.fishcareai.com/about/">About</a>
+    <a href="https://www.fishcareai.com/contact/">Contact</a>
+    <a href="https://www.fishcareai.com/editorial-policy/">Editorial Policy</a>
+    <a href="https://www.fishcareai.com/privacy/">Privacy</a>
+    <a href="https://www.fishcareai.com/image-credits/">Image Credits</a>
+  </nav>
 </footer>
 
 <script>
 (function(){
   var btn=document.getElementById('fc-hbg');
   var links=document.getElementById('fc-nlinks');
+  var nav=document.getElementById('fishcare-nav');
   if(!btn||!links)return;
-  btn.addEventListener('click',function(){
-    var open=links.classList.toggle('open');
-    btn.classList.toggle('hbg-open',open);
-    btn.setAttribute('aria-expanded',String(open));
-    btn.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');
-  });
+  function openMenu(){links.classList.add('open');btn.classList.add('hbg-open');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-label','Close navigation menu');}
+  function closeMenu(){links.classList.remove('open');btn.classList.remove('hbg-open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open navigation menu');}
+  btn.addEventListener('click',function(){links.classList.contains('open')?closeMenu():openMenu();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+  document.addEventListener('click',function(e){if(nav&&!nav.contains(e.target))closeMenu();});
 })();
 </script>
 </body>
