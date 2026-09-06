@@ -151,6 +151,9 @@ function sendFile(res, filePath, contentType) {
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
+  // HEAD must be served exactly like GET (Node suppresses the body itself).
+  // Without this, crawlers and link checkers that probe with HEAD see a 404.
+  const isRead = req.method === 'GET' || req.method === 'HEAD';
 
   // POST /api/identify
   if (req.method === 'POST' && url.pathname === '/api/identify') {
@@ -193,14 +196,14 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // GET /viewer  – original 3D embedding viewer
-  if (req.method === 'GET' && url.pathname === '/viewer') {
+  // GET/HEAD /viewer  – original 3D embedding viewer
+  if (isRead && url.pathname === '/viewer') {
     sendFile(res, path.join(__dirname, 'static', 'index.html'), 'text/html; charset=utf-8');
     return;
   }
 
-  // GET /* – serve static files from public/ (with path-traversal guard)
-  if (req.method === 'GET') {
+  // GET/HEAD /* – serve static files from public/ (with path-traversal guard)
+  if (isRead) {
     const publicDir = path.join(__dirname, 'public');
     const raw = decodeURIComponent(url.pathname);
     const slug = path.normalize(raw).replace(/^[/\\]+/, '') || 'index.html';
