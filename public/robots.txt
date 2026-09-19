@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://identify.fishcareai.com/sitemap.xml
+Sitemap: https://www.fishcareai.com/sitemap.xml

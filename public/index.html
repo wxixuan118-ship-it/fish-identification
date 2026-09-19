@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>What Fish Is This? Free AI Fish Identifier | FishCare AI</title>
 <meta name="description" content="What fish is this? Upload a photo and find out in seconds — free AI fish identification across 866 freshwater and saltwater species, no account needed."/>
-<link rel="canonical" href="https://identify.fishcareai.com/"/>
+<link rel="canonical" href="https://www.fishcareai.com/identify/"/>
 <meta name="theme-color" content="#0a1628"/>
 <link rel="preconnect" href="https://www.fishcareai.com" crossorigin/>
 <link rel="dns-prefetch" href="https://www.fishcareai.com"/>
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="FishCare AI"/>
 <meta property="og:title" content="What Fish Is This? Free AI Fish Identifier"/>
 <meta property="og:description" content="Upload a photo to identify a fish in seconds — species name, scientific name and confidence score. Free AI fish identification for freshwater and saltwater fish."/>
-<meta property="og:url" content="https://identify.fishcareai.com/"/>
+<meta property="og:url" content="https://www.fishcareai.com/identify/"/>
 <meta property="og:image" content="https://www.fishcareai.com/assets/freshwater-fish-care-hero-optimized.jpg"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="What Fish Is This? Free AI Fish Identifier"/>
@@ -183,7 +183,7 @@ footer.ft{background:rgba(4,16,30,.95);border-top:1px solid rgba(125,235,255,.14
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "@id": "https://identify.fishcareai.com/#app",
+  "@id": "https://www.fishcareai.com/identify/#app",
   "name": "FishCare AI Fish Identifier",
   "alternateName": [
     "What Fish Is This?",
@@ -191,7 +191,7 @@ footer.ft{background:rgba(4,16,30,.95);border-top:1px solid rgba(125,235,255,.14
     "Fish Identification Tool",
     "Identify a Fish From a Photo"
   ],
-  "url": "https://identify.fishcareai.com/",
+  "url": "https://www.fishcareai.com/identify/",
   "description": "Free AI fish identifier. Upload a photo of a fish and get the species name, scientific name, family and a confidence score in seconds, across 866 freshwater and saltwater species.",
   "applicationCategory": "UtilitiesApplication",
   "applicationSubCategory": "Fish identification",
@@ -310,7 +310,7 @@ footer.ft{background:rgba(4,16,30,.95);border-top:1px solid rgba(125,235,255,.14
       "@type": "ListItem",
       "position": 2,
       "name": "What Fish Is This?",
-      "item": "https://identify.fishcareai.com/"
+      "item": "https://www.fishcareai.com/identify/"
     }
   ]
 }
@@ -328,7 +328,7 @@ footer.ft{background:rgba(4,16,30,.95);border-top:1px solid rgba(125,235,255,.14
     <a class="nl" href="https://www.fishcareai.com/tools/">Tools</a>
     <a class="nl" href="https://www.fishcareai.com/species/">Encyclopedia</a>
     <a class="nl" href="https://www.fishcareai.com/aquarium-fish-diseases/">Fish Diseases</a>
-    <a class="nl act" aria-current="page" href="https://identify.fishcareai.com/">Fish Identify</a>
+    <a class="nl act" aria-current="page" href="https://www.fishcareai.com/identify/">Fish Identify</a>
     <a class="nl" href="https://www.fishcareai.com/about/">About</a>
   </div>
   <button class="hbg hbg-btn" id="fc-hbg" aria-label="Toggle navigation" aria-expanded="false" type="button">
@@ -475,16 +475,16 @@ footer.ft{background:rgba(4,16,30,.95);border-top:1px solid rgba(125,235,255,.14
   <section class="content-section">
     <h2>Fish identification guides by species and region</h2>
     <nav class="related-links" aria-label="Species identification guides">
-      <a href="/freshwater-fish-identification">Freshwater fish identification chart</a>
-      <a href="/saltwater-fish-identification">Saltwater fish identification chart</a>
-      <a href="/reef-fish-identification">Reef fish identification</a>
-      <a href="/salmon-identification">Salmon identification chart</a>
-      <a href="/parrot-fish">Parrot fish identification</a>
-      <a href="/butterfly-fish">Butterfly fish identification</a>
-      <a href="/florida-fish-identification">Florida fish identification chart</a>
-      <a href="/caribbean-fish-identification">Caribbean fish identification chart</a>
-      <a href="/gulf-of-mexico-fish-identification">Gulf of Mexico fish identification chart</a>
-      <a href="/fish-identification-chart">Fish identification chart with pictures</a>
+      <a href="/identify/freshwater-fish-identification">Freshwater fish identification chart</a>
+      <a href="/identify/saltwater-fish-identification">Saltwater fish identification chart</a>
+      <a href="/identify/reef-fish-identification">Reef fish identification</a>
+      <a href="/identify/salmon-identification">Salmon identification chart</a>
+      <a href="/identify/parrot-fish">Parrot fish identification</a>
+      <a href="/identify/butterfly-fish">Butterfly fish identification</a>
+      <a href="/identify/florida-fish-identification">Florida fish identification chart</a>
+      <a href="/identify/caribbean-fish-identification">Caribbean fish identification chart</a>
+      <a href="/identify/gulf-of-mexico-fish-identification">Gulf of Mexico fish identification chart</a>
+      <a href="/identify/fish-identification-chart">Fish identification chart with pictures</a>
     </nav>
     <h3>Once you know what it is</h3>
     <nav class="related-links" aria-label="Related FishCare AI tools">
@@ -509,7 +509,7 @@ footer.ft{background:rgba(4,16,30,.95);border-top:1px solid rgba(125,235,255,.14
       <a href="https://www.fishcareai.com/aquarium-fish-diseases/">Fish Diseases</a>
       <a href="https://www.fishcareai.com/guides/">Guides</a>
       <a href="https://www.fishcareai.com/tools/">Aquarium Tools</a>
-      <a href="https://identify.fishcareai.com/">Fish Identify</a>
+      <a href="https://www.fishcareai.com/identify/">Fish Identify</a>
     </div>
     <div class="ftcol">
       <h5>Popular Tools</h5>
@@ -581,7 +581,7 @@ function handleFile(file) {
   // Upload & identify
   const fd = new FormData();
   fd.append('image', file);
-  fetch('/api/identify', { method: 'POST', body: fd })
+  fetch('/identify/api/identify', { method: 'POST', body: fd })
     .then(r => r.json())
     .then(data => {
       spinner.style.display = 'none';
